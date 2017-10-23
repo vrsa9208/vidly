@@ -16,12 +16,14 @@ namespace Vidly
             //El orden en que se agregan las rutas importa.
             //Se debe agregar desde la más específica a las más general
 
-            routes.MapRoute(
+            routes.MapMvcAttributeRoutes();
+
+            /*routes.MapRoute(
                 "MoviesByReleaseDate",
                 "movies/released/{year}/{month}",
                 new {controller = "Movies", action = "ByReleaseDate"},
                 new {year = @"2015|2016", month = @"\d{2}"}         //Expresiones regulares para limitar los valores validos en la url
-            );
+            );*/
 
             routes.MapRoute(
                 name: "Default",
