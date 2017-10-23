@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -13,7 +14,21 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             Movie movie = new Movie() {Name = "Shrek!"};
-            return View(movie);
+
+            //With ViewData and ViewBag you can share data from the controller to the view
+
+            List<Customer> customers = new List<Customer>
+            {
+                new Customer{ Name = "Customer 1" },
+                new Customer{ Name = "Customer 2" }
+            };
+
+            RandomMovieViewModel viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+            return View(viewModel);
         }
 
         public ActionResult Edit(int id)
