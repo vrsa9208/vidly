@@ -205,6 +205,14 @@
     <Compile Include="Migrations\201710251513386_AddIsSubscribedToNewsletter.Designer.cs">
       <DependentUpon>201710251513386_AddIsSubscribedToNewsletter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710251520373_AddMembershipType.cs" />
+    <Compile Include="Migrations\201710251520373_AddMembershipType.Designer.cs">
+      <DependentUpon>201710251520373_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710251844381_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201710251844381_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201710251844381_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -302,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710251513386_AddIsSubscribedToNewsletter.resx">
       <DependentUpon>201710251513386_AddIsSubscribedToNewsletter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251520373_AddMembershipType.resx">
+      <DependentUpon>201710251520373_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710251844381_PopulateMembershipTypes.resx">
+      <DependentUpon>201710251844381_PopulateMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
