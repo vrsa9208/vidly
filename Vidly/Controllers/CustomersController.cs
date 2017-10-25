@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Vidly.Models;
 
 namespace Vidly.Controllers
@@ -25,38 +26,18 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(GetCustomers());
+            return View(_context.Customers.Include(c => c.MembershipType).ToList());
         }
 
         //GET: Customers/Details/{id}
         [Route("Customers/Details/{id:Int}")]
         public ActionResult Details(int id)
         {
-            Customer customer = GetById(id);
+            Customer customer = _context.Customers.SingleOrDefault(x => x.Id == id);
             if (customer != null)
                 return View(customer);
             else
                 return HttpNotFound();
-        }
-
-        private Customer GetById(int id)
-        {
-            //var query = from customer in GetCustomers()
-            //            where customer.Id == id
-            //            select customer;
-
-            //return query.FirstOrDefault();
-            return GetCustomers().SingleOrDefault(x => x.Id == id);
-        }
-
-        private IEnumerable<Customer> GetCustomers()
-        {
-            /*return new List<Customer>
-            {
-                new Customer{ Name = "John Smith", Id = 1 },
-                new Customer{ Name = "Mary William", Id = 2 }
-            };*/
-            return _context.Customers;
         }
     }
 }
